@@ -3,5 +3,5 @@ class Tweet < ApplicationRecord
     has_many :users, through: :likes
     validates :message, presence: true, length: { maximum: 140 }
    
-  mount_uploader :media, MediaUploader
+  #mount_uploader :media, MediaUploader
 end
