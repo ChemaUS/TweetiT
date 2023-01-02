@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+    skip_before_action :check_user, only: [:create]
+
+    # username
+    # password
 
     def create
         user = User.find_by(username: params[:username])
@@ -12,8 +16,7 @@ class SessionsController < ApplicationController
 
     def destroy
         session.delete :user_id
-        render json: { message: "You have Signed Out!" }
+        render json: { message: "You Have Logged Out" }
     end
 
-end
 end
