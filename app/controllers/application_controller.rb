@@ -1,26 +1,20 @@
-class UsersController < ApplicationController
-    skip_before_action :check_user, only: [:create]
+class ApplicationController < ActionController::API
+    include ActionController::Cookies 
+    before_action :check_user
 
-    def show
-        user = User.find_by(id: session[:user_id])
-        if user
-            render json: user
-        else
-            render json: { message: "Not logged in" }, status: 404
+    def check_user
+        unless current_user 
+            render json: { error: "You are not authorized" }, status: 401
         end
     end
 
-    # signup
-    def create
-        user = User.create!(user_params)
-        session[:user_id] = user.id
-        render json: user, status: :created
+    def authorize
+        !!current_user
     end
 
-    private
 
-    def user_params
-        params.permit(:username, :email, :password)
+    def current_user
+        User.find_by(id: session[:user_id])
     end
 
 end
