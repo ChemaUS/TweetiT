@@ -7,6 +7,7 @@ class User < ApplicationRecord
     validates :password, presence: true, length: { minimum: 8, maximum: 15  }
     validates :email, presence: true, length: { minimum: 5, maximum: 25 }
     validates :email, uniqueness: true
+    
 
     mount_uploader :avatar, AvatarUploader
 end

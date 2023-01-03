@@ -12,12 +12,9 @@ function App() {
     fetch("/me")
       .then(res => {
         if (res.ok) {
-          res.json()
-            .then(data => {
-              setUser(data)
-            })
+          res.json().then(data => setUser(data))
         } else {
-          // navigate('/signup')
+          // \navigate('/signup')
         }
       })
   }, [])
@@ -33,9 +30,9 @@ function App() {
     <div className="App">
       <Login user={user} setUser={setUser} />
       <Signup user={user} setUser={setUser} />
+      <Profile user={user} />
       <button onClick={handleLogout}>Logout</button>
 
-      <Profile user={user} />
 
     </div>
   );

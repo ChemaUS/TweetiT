@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    wrap_parameters format: []
     skip_before_action :check_user, only: [:create]
 
     def show
@@ -13,14 +14,18 @@ class UsersController < ApplicationController
     # signup
     def create
         user = User.create!(user_params)
+        if user
         session[:user_id] = user.id
         render json: user, status: :created
+        else
+            render json: {error: user.errors.full_messages}, status: :unprocessable_entitiy
+        end
     end
 
     private
 
     def user_params
-        params.permit(:username, :email, :password)
+        params.permit(:username, :email, :password,:password_confirmation)
     end
 
 end
