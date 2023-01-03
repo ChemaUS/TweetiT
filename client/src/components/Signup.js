@@ -48,7 +48,7 @@ function Signup({ user, setUser }) {
                     type="password" onChange={handleChangePassword} value={password} placeholder='password'
                 />
 
-                <label htmlFor="password_confirmation">Confirm Password:</label>
+                <label className="password_confirmation">Confirm Password:</label>
                 <input
                     type="password"
                     id="password_confirmation"
