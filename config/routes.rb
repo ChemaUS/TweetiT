@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   resources :likes, only:[:index, :show]
   resources :tweets, except:[:update]
-  resources :users, only: [:create]
+  resources :users, only: [:show,:create]
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"

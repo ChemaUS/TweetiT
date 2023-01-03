@@ -18,7 +18,7 @@ function Login({ user, setUser }) {
             .then(res => res.json())
             .then(data => {
                 if (data.id) {
-                    setError('')
+                    //setError('')
                     setUser(data)
                 } else if (data.errors) {
                     setError(data.errors)
@@ -32,7 +32,7 @@ function Login({ user, setUser }) {
     if (user && user.id) {
         return (
             <div>
-                Already logged in!
+                Welcome {user.username}!
             </div>
         )
     }
