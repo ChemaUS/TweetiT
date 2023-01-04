@@ -11,15 +11,19 @@ function Navbar() {
             </div>
 
             <div className="notifications">
+                <p>Notifications</p>
             </div>
 
             <div className="messages">
+                <p>Messages</p>
             </div>
 
             <div className="bookmarks">
+                <p>Bookmarks</p>
             </div>
 
             <div className="profile">
+                <p>Profile</p>
             </div>
 
         </div>
