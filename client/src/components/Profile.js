@@ -10,9 +10,8 @@ function Profile({ user, setUser }) {
         history.push("/Login")
     }
     return (
-        <div>
-            <button onClick={handleLogout}> Logout</button>
-        </div>
+        <>
+        </>
     )
 }
 

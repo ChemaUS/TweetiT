@@ -179,11 +179,64 @@ code {
 }
 
 .navbar {
-  margin: 0;
+  top: 0%;
+  bottom:0%;
+  position:absolute;
+  margin:0;
   padding: 0;
-  width: 200px;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
+  width: 120px;  
+  display:flex;
+  flex-direction:column;
+ z-index:100;
+ text-align:center;
+ align-items:left
+}
+.icons{
+  height:60px;
+  width:60px;
+ color:white;
+ margin-bottom:80px;
+ margin-left:20px;
+ align-items:left
+}
+.logout-nav{
+  padding:10px 10px;
+  color: #CBBDDB;
+  font-size: 9px;
+  text-decoration: none;
+  text-transform:uppercase;
+  overflow:hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  border: 1px solid, #8F7CEC;
+  margin:auto;
+}
+.nav-text{
+  text-align:center;
+  align-items:center
+}
+.container{
+width:799px;
+align-text:left;
+margin-bottom:20px;
+margin-top:200px;
+border-bottom:solid #8F7CEC;
+
+font-size:20px
+}
+.tweetContainer{
+  margin-top:250px;
+  align-text:center;
+  margin-left:200px;
+  display:inline-block;
+  border-color: #8F7CEC;
+  border-style:solid;
+  border-radius:-1px;
+height:900px;
+width:800px
+}
+.tweet-message{
+  color:white;
+  font-size:20px;
+  display:block
 }

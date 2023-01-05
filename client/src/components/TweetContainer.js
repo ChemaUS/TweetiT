@@ -1,18 +1,13 @@
 import TweetCard from "./TweetCard";
-function TweetContainer() {
-
-
-
-
-
-
-
-
+function TweetContainer({ tweet }) {
+    const tweetArry = tweet.map((tweets) => {
+        return <TweetCard tweets={tweets} key={tweets.id} />
+    })
     return (
 
         <>
-            <div>
-                <TweetCard />
+            <div className="tweetContainer">
+                {tweetArry}
             </div>
         </>
     )
