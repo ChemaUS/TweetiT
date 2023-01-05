@@ -8,6 +8,8 @@ import HomePage from "./HomePage";
 function App() {
 
   const [user, setUser] = useState({})
+  const [allUser, setAllUser] = useState([])
+  const [searched, setSearched] = useState('')
 
 
   useEffect(() => {
@@ -20,6 +22,17 @@ function App() {
         }
       })
   }, [])
+
+
+  useEffect(() => {
+    fetch(`/likes`)
+      .then((r) => r.json())
+      .then((data) => setAllUser(data));
+  }, []);
+
+  // const filtered = user.filter((userFlter) => {
+  //   return userFlter.username.toLowerCase().includes((searched.toLowerCase()))
+  // })
 
   return (
     <div className="landing-page">
@@ -63,7 +76,7 @@ function App() {
         </Route>
 
         <Route exact path="/HomePage">
-          <HomePage user={user} setUser={setUser} />
+          <HomePage user={user} setUser={setUser} searched={searched} setSearched={setSearched} userr={allUser} />
         </Route>
 
 

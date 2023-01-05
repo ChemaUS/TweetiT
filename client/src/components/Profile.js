@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-function Profile({ user, setUser }) {
+function Profile({ user, setUser, }) {
     const history = useHistory()
 
     const handleLogout = () => {
@@ -11,6 +11,7 @@ function Profile({ user, setUser }) {
     }
     return (
         <>
+
         </>
     )
 }

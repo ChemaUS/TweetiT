@@ -2,7 +2,10 @@ class UsersController < ApplicationController
     wrap_parameters format: []
     skip_before_action :check_user, only: [:create]
     
-
+      def index
+        users = User.all 
+        render json:users
+      end
     def show
         user = User.find_by(id: session[:user_id])
         if user

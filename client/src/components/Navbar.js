@@ -21,7 +21,7 @@ import Profile from "./Profile";
 
 
 // only icon working will be the profile icon
-function Navbar() {
+function Navbar({ user, userr }) {
 
 
     return (
@@ -58,7 +58,7 @@ function Navbar() {
             <NavLink className="padding" to="/"
                 style={({ isActive }) =>
                     (isActive ? { color: 'white' } : { color: 'black' })}>Home</NavLink> */}
-                <Profile />
+                <Profile user={user} userr={userr} />
                 <div className="icons">
                     <button className="logout-nav">Logout</button>
                 </div>
