@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 
 import Login from './Login'
 import Signup from './Signup'
-import Profile from './Profile'
+import HomePage from "./HomePage";
 
 function App() {
 
   const [user, setUser] = useState({})
+
 
   useEffect(() => {
     fetch("/me")
@@ -20,34 +21,42 @@ function App() {
       })
   }, [])
 
-  const handleLogout = () => {
-    setUser({})
-    fetch('/logout', {
-      method: 'DELETE'
-    })
-  }
-
   return (
     <div className="landing-page">
-      <Route exact path="/">
-        <nav className='landing-page-nav'>
-
-          <h1 className='title'>Welcome to TweeTiT</h1>
-        </nav>
-        <Login user={user} setUser={setUser} />
-
-      </Route>
       <Switch>
-        <Route path="/Signup">
+        <Route exact path="/">
+        <nav className='landing-page-nav'>
+            <h1 className='title'>Welcome to TweeTiT</h1>
+          </nav>
+          <button className="">
+
+            <Link className="login" to="/Login">
+              Get Started
+            </Link>
+          </button>
+        </Route>
+
+        <Route exact path="/Login">
+          <nav className='landing-page-nav'>
+          <h1 className='title'>Welcome to TweeTiT</h1>
+          </nav>
+          <Login user={user} setUser={setUser} />
+        </Route>
+        <Route exact path="/Signup">
           <nav className='landing-page-nav'>
 
             <h1 className='title'>Welcome to TweeTiT</h1>
           </nav>
-      <Signup user={user} setUser={setUser} />
+          <Signup user={user} setUser={setUser} />
         </Route>
+
+        <Route exact path="/HomePage">
+          <HomePage user={user} setUser={setUser} />
+        </Route>
+
+
       </Switch>
-      <Profile user={user} />
-      <button onClick={handleLogout}>Logout</button>
+
     </div>
   );
 }
