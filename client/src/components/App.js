@@ -25,15 +25,27 @@ function App() {
     <div className="landing-page">
       <Switch>
         <Route exact path="/">
+          <div className='background-div'>
         <nav className='landing-page-nav'>
             <h1 className='title'>Welcome to TweeTiT</h1>
           </nav>
-          <button className="">
+            <div className='landing-div'>
+              <h1>Follow your interest.</h1>
+              <h1>Hear what people are talkin about</h1>
+              <h1>Elon Musk Free </h1>
+            </div>
+            <img className='background-img' src="https://as2.ftcdn.net/v2/jpg/01/22/48/31/1000_F_122483102_dY6XaAhfyXYDECNtIrtvv4AtHwmJz3DT.jpg" alt='' />
+            <div className="vl"></div>
+
+            <div className="landing-button-div">
+              <button className="start">
 
             <Link className="login" to="/Login">
               Get Started
             </Link>
           </button>
+            </div>
+          </div>
         </Route>
 
         <Route exact path="/Login">
