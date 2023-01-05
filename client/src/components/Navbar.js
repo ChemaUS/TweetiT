@@ -13,7 +13,7 @@ import { BookmarkIcon } from "@heroicons/react/20/solid"
 // import { HiUser } from "react-icons/hi";
 import { UserIcon } from "@heroicons/react/20/solid"
 
-import { NavLink } from "react-router-dom"
+// import { NavLink } from "react-router-dom"
 import Profile from "./Profile";
 
 
@@ -26,34 +26,34 @@ function Navbar() {
 
     return (
         <div>
-        <div className="navbar">
+            <div className="navbar">
                 <div className="icons">
-                <HomeIcon />
+                    <HomeIcon />
                     <p className="nav-text">Home</p>
-            </div>
+                </div>
 
                 <div className="icons">
-                <BellIcon />
+                    <BellIcon />
                     <p className="nav-text">Notifications</p>
-            </div>
+                </div>
 
                 <div className="icons">
-                <ArchiveBoxIcon />
+                    <ArchiveBoxIcon />
                     <p className="nav-text">Messages</p>
-            </div>
+                </div>
 
 
                 <div className="icons">
-                <BookmarkIcon />
+                    <BookmarkIcon />
                     <p className="nav-text">Bookmarks</p>
-            </div>
+                </div>
 
 
                 <div className="icons">
 
-                <UserIcon />profile
-                {/* <p>Profile</p> */}
-            </div>
+                    <UserIcon />profile
+                    {/* <p>Profile</p> */}
+                </div>
                 {/*
             <NavLink className="padding" to="/"
                 style={({ isActive }) =>
@@ -65,7 +65,7 @@ function Navbar() {
 
 
 
-        </div >
+            </div >
         </div>
     )
 }

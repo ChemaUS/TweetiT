@@ -9,17 +9,32 @@ import Search from "./Search";
 
 function HomePage({ user, setUser }) {
     const [tweet, setTweet] = useState([])
+
+
     useEffect(() => {
         fetch(`/tweets`)
             .then((r) => r.json())
             .then((data) => setTweet(data));
     }, []);
 
+    //andle POST request 
+    // const [tweet, setTweet] = useState([])
+
+    const handleAddTweet = ({ newTweet }) => {
+        fetch('/login', {
+            method: "POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ newTweet })
+        })
+            .then((res) => res.json())
+            .then((data) => setTweet([data, ...tweet]));
+    }
+
     return (
         <div>
             <TweetContainer tweet={tweet} />
             <Navbar />
-            <SubmitTweet />
+            <SubmitTweet handleAddTweet={handleAddTweet} />
             <Search />
 
 
