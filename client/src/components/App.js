@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Switch, Route } from "react-router-dom";
-import { Link } from "react-router-dom";
+
 import Login from './Login'
 import Signup from './Signup'
 import Profile from './Profile'
@@ -15,7 +15,7 @@ function App() {
         if (res.ok) {
           res.json().then(data => setUser(data))
         } else {
-          // \navigate('/signup')
+
         }
       })
   }, [])
@@ -28,32 +28,26 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="landing-page">
+      <Route exact path="/">
+        <nav className='landing-page-nav'>
 
-      <button>
-        <Link className="" to="/Login">
-          Login
-        </Link>
-      </button>
-      <button>
-        <Link className="" to="/Signup">
-          Signup
-        </Link>
-      </button>
+          <h1 className='title'>Welcome to TweeTiT</h1>
+        </nav>
+        <Login user={user} setUser={setUser} />
 
+      </Route>
       <Switch>
-        <Route path="/Login">
-      <Login user={user} setUser={setUser} />
-        </Route>
-
         <Route path="/Signup">
+          <nav className='landing-page-nav'>
+
+            <h1 className='title'>Welcome to TweeTiT</h1>
+          </nav>
       <Signup user={user} setUser={setUser} />
         </Route>
       </Switch>
       <Profile user={user} />
       <button onClick={handleLogout}>Logout</button>
-
-
     </div>
   );
 }
