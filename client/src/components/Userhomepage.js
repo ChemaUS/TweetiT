@@ -6,7 +6,12 @@ import Search from "./Search";
 
 
 
-function userHomePage() {
+function UserHomePage() {
+
+    // handle POST request 
+    // function handleAddTweet() {
+    //     fetch
+    // }
 
 
     return (
@@ -23,5 +28,5 @@ function userHomePage() {
     )
 }
 
-export default userHomePage;
+export default UserHomePage;
 

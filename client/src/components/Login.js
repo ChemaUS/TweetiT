@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import UserHomePage from './Userhomepage'
 
 function Login({ user, setUser }) {
 
@@ -33,6 +34,7 @@ function Login({ user, setUser }) {
         return (
             <div>
                 Welcome {user.username}!
+                <UserHomePage />
             </div>
         )
     }
