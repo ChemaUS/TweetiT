@@ -1,11 +1,10 @@
 import React from "react";
 
 
-function TweetCard() {
-
+function TweetCard({ tweets }) {
     return (
-        <div>
-            {/* insert text from tweet */}
+        <div className="container">
+            <h1 className="tweet-message"> {tweets.message}</h1>
         </div>
     )
 }

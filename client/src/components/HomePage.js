@@ -1,26 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Navbar";
 import SubmitTweet from "./SubmitTweet";
 import TweetContainer from "./TweetContainer";
 import Search from "./Search";
-import Profile from "./Profile";
+
 
 
 
 function HomePage({ user, setUser }) {
-
+    const [tweet, setTweet] = useState([])
+    useEffect(() => {
+        fetch(`/tweets`)
+            .then((r) => r.json())
+            .then((data) => setTweet(data));
+    }, []);
 
     return (
         <div>
-            <p style={{ color: 'red' }}>HELLLLLPPP</p>
-
-
+            <TweetContainer tweet={tweet} />
             <Navbar />
             <SubmitTweet />
-            <TweetContainer />
             <Search />
 
-            <Profile user={user} setUser={setUser} />
+
             {/* <button onClick={handleLogout}>Logout</button> */}
 
         </div>

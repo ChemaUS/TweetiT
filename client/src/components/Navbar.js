@@ -14,6 +14,7 @@ import { BookmarkIcon } from "@heroicons/react/20/solid"
 import { UserIcon } from "@heroicons/react/20/solid"
 
 import { NavLink } from "react-router-dom"
+import Profile from "./Profile";
 
 
 
@@ -24,42 +25,48 @@ function Navbar() {
 
 
     return (
-
+        <div>
         <div className="navbar">
-            <div className="home">
+                <div className="icons">
                 <HomeIcon />
-                <p>Home</p>
+                    <p className="nav-text">Home</p>
             </div>
 
-            <div className="notifications">
+                <div className="icons">
                 <BellIcon />
-                <p>Notifications</p>
+                    <p className="nav-text">Notifications</p>
             </div>
 
-            <div className="messages">
+                <div className="icons">
                 <ArchiveBoxIcon />
-                <p>Messages</p>
+                    <p className="nav-text">Messages</p>
             </div>
 
 
-            <div className="bookmarks">
+                <div className="icons">
                 <BookmarkIcon />
-                <p>Bookmarks</p>
+                    <p className="nav-text">Bookmarks</p>
             </div>
 
 
-            <div className="profile">
+                <div className="icons">
 
                 <UserIcon />profile
                 {/* <p>Profile</p> */}
             </div>
-
+                {/*
             <NavLink className="padding" to="/"
                 style={({ isActive }) =>
-                    (isActive ? { color: 'white' } : { color: 'black' })}>Home</NavLink>
+                    (isActive ? { color: 'white' } : { color: 'black' })}>Home</NavLink> */}
+                <Profile />
+                <div className="icons">
+                    <button className="logout-nav">Logout</button>
+                </div>
+
 
 
         </div >
+        </div>
     )
 }
 // add onClick and route for Profile icon to lead to profile file
