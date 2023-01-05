@@ -1,3 +1,6 @@
+:root{
+  background:#131315;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,12 +8,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background:#131315
+ 
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+ 
+}
+.background-div{
+  background: linear-gradient(90deg, #8F7CEC 50%, #242026 50%);
+  position: absolute;
+  top: 0px; 
+  bottom: 0px; 
+  width: 100%;
+  z-index:299;
+}
+.background-img{
+  height:700px;
+  mix-blend-mode: color-burn;
+  left:-2%;
+  position:absolute;
+  object-fit:contain
 }
 .login-box{
   position: absolute;
@@ -107,8 +126,64 @@ code {
  justify-content: center;
  width:100%;
  height:65px;
- z-index: 1;
+ z-index: 3;
    box-shadow: 0 5px 15px rgba(143, 124, 236, 0.7);
 }
+.landing-div {
+ display:inline-block;
+ color:white;
+ text-align:left;
+ position: absolute;
+  top: 50%;
+  left: 10%;
+ 
+}
+.vl {
+  border-left: 1px solid  #8F7CEC;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  margin-left: -3px;
+  top: 0;
+  z-index:-2;
+  box-shadow: 0 0 5px #8F7CEC, 0 0 25px #8F7CEC, 0 0 50px #8F7CEC, 0 0 100px #8F7CEC
+}
+.landing-button-div{
+  display:inline-block;
+  text-align:left;
+  position: absolute;
+   top: 61%;
+   right: 10%;
+}
+.start{
+  padding:10px 20px;
+  color: #CBBDDB;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform:uppercase;
+  overflow:hidden;
+  transition: .5s;
+  letter-spacing: 4px;
+  border: 1px solid, #8F7CEC;
+  margin:auto;
+}
+.start:hover{
+  background: #8F7CEC;
+  color:#fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #8F7CEC, 0 0 25px #8F7CEC, 0 0 50px #8F7CEC, 0 0 100px #8F7CEC
+}
+* {
+  margin: 0;
+  padding: 0;
+}
 
-
+.navbar {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}

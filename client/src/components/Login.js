@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
+
 
 
 function Login({ user, setUser }) {
@@ -7,6 +9,8 @@ function Login({ user, setUser }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [error, setError] = useState('')
+    let history = useHistory()
+
 
     const handleLogin = (e) => {
         e.preventDefault()
@@ -21,7 +25,7 @@ function Login({ user, setUser }) {
             .then(data => {
                 if (data.id) {
 
-                    setUser(data)
+                    setUser(data); history.push("/HomePage")
                 } else if (data.errors) {
                     setError(data.errors)
                 }
@@ -31,16 +35,10 @@ function Login({ user, setUser }) {
     const handleChangeUsername = e => setUsername(e.target.value)
     const handleChangePassword = e => setPassword(e.target.value)
 
-    if (user && user.id) {
-        return (
-            <div>
-                Welcome {user.username}!
-            </div>
-        )
-    }
 
     return (
         <div className='login-box'>
+
 
             <h2>Login:</h2>
 
@@ -70,8 +68,12 @@ function Login({ user, setUser }) {
 
                 <div className='button-form'>
 
-                    <input 
+                    <input /*onClick={() => {
+                        history.push("/HomePage")
+
+                    }} */
                         className='submit' type="submit" value="Login"
+
                 />
                     <button className='submit '>
                         <Link className="signup" to="/Signup">
@@ -82,7 +84,6 @@ function Login({ user, setUser }) {
                 </div>
 
             </form>
-
 
         </div>
     )

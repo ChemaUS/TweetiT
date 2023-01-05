@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Signup({ user, setUser }) {
 
@@ -8,6 +8,7 @@ function Signup({ user, setUser }) {
     const [password, setPassword] = useState('')
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [email, setEmail] = useState('')
+    let history = useHistory()
 
     const handleLogin = (e) => {
 
@@ -19,7 +20,7 @@ function Signup({ user, setUser }) {
         })
             .then(res => {
                 if (res.ok) {
-                    res.json().then(setUser)
+                    res.json().then(setUser); history.push("/HomePage")
                 } else {
                     res.json().then(e => setError(Object.entries(e.error).flat()))
                 }
@@ -91,7 +92,7 @@ function Signup({ user, setUser }) {
                 />
                     <button className='submit'>
 
-                        <Link className="login" to="/">
+                        <Link className="login" to="/Login">
                             Login
                         </Link>
                     </button>
