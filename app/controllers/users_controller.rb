@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     wrap_parameters format: []
     skip_before_action :check_user, only: [:create]
+    
 
     def show
         user = User.find_by(id: session[:user_id])
@@ -18,7 +19,7 @@ class UsersController < ApplicationController
         session[:user_id] = user.id
         render json: user, status: :created
         else
-            render json: {error: user.errors.full_messages}, status: :unprocessable_entitiy
+            render json: {error: user.errors}, status: :unprocessable_entitiy
         end
     end
 
